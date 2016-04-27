@@ -1,0 +1,8 @@
+webco_flow:
+  image: webandco/ubuntu-supervisor-appserver
+
+  ports:
+    - 80:80
+    - 443:443
+    - 9080:9080
+    - 9443:9443
