@@ -1,21 +1,18 @@
-FROM webandco/ubuntu-supervisor:latest
+FROM webandco/ubuntu-supervisor:15.04
 MAINTAINER David Spiola <david(at)webandco.com>
 
 ADD root /
 RUN /build.sh
 
 WORKDIR /var/www
-VOLUME /var/www
 
 CMD ["bash"]
 ENTRYPOINT ["/config/bootstrap.sh"]
 
 ENV APPSERVER_PHP_MEMORY_LIMIT=512M
-ENV APPSERVER_OVERRIDE_APPSERVER_CONF=FALSE
-
 ENV APPSERVER_OVERRIDE_VHOST_CONF=FALSE
 ENV APPSERVER_VHOST_DOMAIN=xxx.local
-
+ENV APPSERVER_VHOST_WEB_ROOT=public
 ENV APPSERVER_OVERRIDE_REDIS_CONF=FALSE
 
 
